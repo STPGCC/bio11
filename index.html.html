@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Year 11 Biology | St Peter’s Diploma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F3; --grid:rgba(30,36,51,.055); --surface:#FFFFFF; --ink:#1E2433; --muted:#5A6275; --line:#D9DDE3;
+  --scarlet:#A51C30; --card-line:#C9DAF0; --card-margin:#E7A1A9;
+  --genetics:#A51C30; --cells:#2B5BA6; --immunity:#7A3E9D; --responses:#0F7C74; --diseases:#B4531A; --diabetes:#9A6A10;
+  --ok:#1C7C44; --bad:#B3261E; --okbg:#E6F4EA; --badbg:#FCE8E6;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141922; --grid:rgba(231,234,240,.04); --surface:#1D2430; --ink:#E7EAF0; --muted:#A3AAB8; --line:#323B4A;
+    --scarlet:#E2596B; --card-line:#2C3A52; --card-margin:#6B3540;
+    --genetics:#E2596B; --cells:#7CA5E8; --immunity:#C08AE0; --responses:#4CC2B6; --diseases:#E98A50; --diabetes:#E0B04D;
+    --ok:#6FCF97; --bad:#F28B82; --okbg:#1F3A2A; --badbg:#3E2220;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141922; --grid:rgba(231,234,240,.04); --surface:#1D2430; --ink:#E7EAF0; --muted:#A3AAB8; --line:#323B4A;
+  --scarlet:#E2596B; --card-line:#2C3A52; --card-margin:#6B3540;
+  --genetics:#E2596B; --cells:#7CA5E8; --immunity:#C08AE0; --responses:#4CC2B6; --diseases:#E98A50; --diabetes:#E0B04D;
+  --ok:#6FCF97; --bad:#F28B82; --okbg:#1F3A2A; --badbg:#3E2220;
+  color-scheme: dark;
+}
+:root{ box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+*,*::before,*::after{ box-sizing:inherit; }
+html{ scroll-padding-top:env(safe-area-inset-top,0px); }
+body{
+  margin:0; background-color:var(--paper); color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; font-size:1.0625rem; line-height:1.6;
+}
+h1,h2,h3{ font-family:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif; line-height:1.15; margin:0; }
+a{ color:inherit; }
+:focus-visible{ outline:3px solid var(--accent,var(--scarlet)); outline-offset:3px; border-radius:4px; }
+img{ max-width:100%; }
+
+.wrap{ max-width:1180px; margin:0 auto; padding:0 20px; }
+header.site{ padding:28px 0 18px; border-bottom:1px solid var(--line); }
+.brand{ display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.brand .school{ color:var(--scarlet); font-weight:700; font-size:.95rem; display:flex; align-items:center; gap:8px; }
+.brand h1{ font-size:clamp(2.1rem,5vw,3.4rem); font-weight:800; letter-spacing:-.02em; }
+.brand .links{ display:flex; gap:10px; flex-wrap:wrap; }
+.pill{ display:inline-block; padding:7px 14px; border:1px solid var(--line); border-radius:999px; text-decoration:none; font-size:.92rem; background:var(--surface); }
+.pill:hover{ border-color:var(--ink); }
+
+.layout{ display:grid; grid-template-columns:240px 1fr; gap:32px; padding:28px 0 60px; }
+nav.topics{ position:sticky; top:calc(env(safe-area-inset-top,0px) + 16px); align-self:start; }
+nav.topics ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; }
+nav.topics a{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; text-decoration:none; font-weight:700; color:var(--muted); }
+nav.topics a .sw{ width:12px; height:12px; border-radius:3px; background:var(--c); flex:none; }
+nav.topics a:hover{ color:var(--ink); background:var(--surface); }
+nav.topics a[aria-current="page"]{ color:var(--ink); background:var(--surface); box-shadow:inset 3px 0 0 var(--c); }
+nav.topics .group{ font-size:.85rem; color:var(--muted); margin:14px 12px 4px; }
+
+main{ min-width:0; }
+.topic-head{ border-left:6px solid var(--accent); padding:4px 0 4px 18px; margin-bottom:20px; }
+.topic-head h2{ font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; letter-spacing:-.015em; }
+.topic-head p{ margin:6px 0 0; color:var(--muted); max-width:68ch; }
+
+.subtabs{ display:flex; gap:4px; border-bottom:1px solid var(--line); margin-bottom:24px; overflow-x:auto; }
+.subtabs button{ font:inherit; font-weight:700; background:none; border:0; padding:10px 14px; color:var(--muted); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px; white-space:nowrap; }
+.subtabs button[aria-selected="true"]{ color:var(--ink); border-bottom-color:var(--accent); }
+.subtabs button:hover{ color:var(--ink); }
+
+/* Home */
+.home-intro{ max-width:66ch; margin-bottom:26px; }
+.home-intro h2{ font-size:2rem; margin-bottom:8px; }
+.year{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.term{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; }
+.term h3{ font-size:1.05rem; margin-bottom:10px; color:var(--muted); font-weight:700; }
+.term a{ display:block; text-decoration:none; padding:8px 10px; border-radius:6px; margin:0 -10px; border-left:4px solid var(--c); font-weight:700; }
+.term a:hover{ background:var(--paper); }
+.term a small{ display:block; font-weight:400; color:var(--muted); }
+.howto{ margin-top:28px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px 20px; max-width:72ch; }
+.howto h3{ font-size:1.1rem; margin-bottom:6px; }
+.howto p{ margin:6px 0; }
+
+/* Flashcards */
+.fc-tools{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+.btn{ font:inherit; font-weight:700; font-size:.95rem; padding:9px 16px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; }
+.btn:hover{ border-color:var(--ink); }
+.btn.primary{ background:var(--accent); border-color:var(--accent); color:#fff; }
+:root[data-theme="dark"] .btn.primary{ color:#141922; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn.primary{ color:#141922; } }
+.btn[aria-pressed="true"]{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.fc-count{ color:var(--muted); font-size:.95rem; margin-left:auto; }
+.card-stage{ perspective:1400px; max-width:680px; }
+.flash{ position:relative; width:100%; aspect-ratio:5/3; min-height:250px; cursor:pointer; transform-style:preserve-3d; transition:transform .5s cubic-bezier(.3,.7,.2,1); border:0; padding:0; background:none; font:inherit; color:inherit; text-align:left; }
+.flash.flipped{ transform:rotateY(180deg); }
+.face{ position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:6px; background-color:var(--surface);
+  background-image:linear-gradient(transparent 46px,var(--card-margin) 46px,var(--card-margin) 48px,transparent 48px),repeating-linear-gradient(transparent 0 31px,var(--card-line) 31px 32px);
+  background-position:0 0,0 16px; box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 24px -12px rgba(0,0,0,.25); padding:60px 30px 26px; display:flex; flex-direction:column; justify-content:center; overflow:auto; }
+.face .tag{ position:absolute; top:13px; left:30px; right:30px; display:flex; justify-content:space-between; font-size:.88rem; color:var(--muted); }
+.face .tag b{ color:var(--accent); }
+.face .txt{ font-size:clamp(1.1rem,2.6vw,1.45rem); line-height:32px; }
+.face.back{ transform:rotateY(180deg); }
+.face.back .txt{ font-size:clamp(1rem,2.2vw,1.2rem); }
+.fc-nav{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; max-width:680px; }
+.fc-nav .grow{ flex:1; }
+.fc-hint{ color:var(--muted); font-size:.9rem; margin-top:10px; }
+.progress{ height:6px; background:var(--line); border-radius:3px; max-width:680px; margin-bottom:16px; overflow:hidden; }
+.progress span{ display:block; height:100%; background:var(--accent); transition:width .3s; }
+
+/* Test */
+.quiz{ max-width:720px; }
+.q-meta{ color:var(--muted); font-size:.95rem; margin-bottom:8px; display:flex; justify-content:space-between; }
+.q-text{ font-size:1.3rem; font-weight:700; margin:0 0 16px; font-family:"Bricolage Grotesque",system-ui,sans-serif; line-height:1.3; }
+.opts{ display:flex; flex-direction:column; gap:8px; }
+.opt{ font:inherit; text-align:left; padding:12px 16px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; display:flex; gap:12px; align-items:flex-start; }
+.opt .k{ font-weight:700; color:var(--muted); min-width:1.2em; }
+.opt:hover:not(:disabled){ border-color:var(--accent); }
+.opt:disabled{ cursor:default; }
+.opt.right{ border-color:var(--ok); background:var(--okbg); }
+.opt.wrong{ border-color:var(--bad); background:var(--badbg); }
+.explain{ margin-top:14px; padding:14px 16px; border-radius:8px; background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); }
+.explain b{ display:block; margin-bottom:2px; }
+.score{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:24px; max-width:720px; }
+.score .big{ font-family:"Bricolage Grotesque",system-ui,sans-serif; font-size:3.2rem; font-weight:800; color:var(--accent); line-height:1; }
+.score ul{ padding-left:20px; }
+
+/* Lists of resources */
+.res-group{ margin-bottom:28px; }
+.res-group h3{ font-size:1.15rem; margin-bottom:10px; }
+.res-group > p{ margin:-4px 0 12px; color:var(--muted); max-width:70ch; }
+.res{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.res li{ border-bottom:1px solid var(--line); }
+.res a{ display:grid; grid-template-columns:76px 1fr; gap:14px; padding:12px 4px; text-decoration:none; align-items:baseline; }
+.res a:hover .t{ text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px; }
+.res .kind{ font-size:.8rem; font-weight:700; color:var(--accent); border:1px solid currentColor; border-radius:4px; text-align:center; padding:1px 4px; }
+.res .t{ font-weight:700; }
+.res .d{ display:block; color:var(--muted); font-size:.95rem; }
+
+/* Prose / study material */
+.prose{ max-width:72ch; }
+.prose h3{ font-size:1.3rem; margin:28px 0 8px; }
+.prose h3:first-child{ margin-top:0; }
+.prose h4{ font-family:"Bricolage Grotesque",system-ui,sans-serif; font-size:1.05rem; margin:18px 0 4px; }
+.prose p, .prose li{ margin:6px 0; }
+.prose ul, .prose ol{ padding-left:22px; }
+.note{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:6px; padding:12px 16px; margin:16px 0; }
+.flow{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:10px 0; }
+.flow span{ background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:5px 10px; font-size:.95rem; }
+.flow i{ font-style:normal; color:var(--accent); font-weight:700; }
+.debate{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+.debate > div{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:12px 16px; }
+.debate h4{ margin-top:0; }
+
+.diseases{ display:grid; gap:16px; }
+.disease{ background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.disease summary{ cursor:pointer; padding:16px 20px; display:flex; justify-content:space-between; gap:12px; align-items:baseline; list-style:none; }
+.disease summary::-webkit-details-marker{ display:none; }
+.disease summary h3{ font-size:1.3rem; }
+.disease summary .inh{ font-size:.9rem; color:var(--accent); font-weight:700; white-space:nowrap; }
+.disease .body{ padding:0 20px 18px; }
+.disease dl{ display:grid; grid-template-columns:150px 1fr; gap:6px 16px; margin:0 0 12px; }
+.disease dt{ font-weight:700; }
+.disease dd{ margin:0; }
+.more-dz{ width:100%; border-collapse:collapse; font-size:.97rem; }
+.table-scroll{ overflow-x:auto; }
+.more-dz th, .more-dz td{ text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+.more-dz th{ font-family:"Bricolage Grotesque",system-ui,sans-serif; }
+
+/* Punnett */
+.punnett{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:20px; max-width:720px; }
+.punnett .ctrls{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px; align-items:end; }
+.punnett label{ display:flex; flex-direction:column; font-weight:700; font-size:.95rem; gap:4px; }
+.punnett select{ font:inherit; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--paper); color:var(--ink); }
+.pgrid{ display:grid; grid-template-columns:60px 110px 110px; grid-auto-rows:60px; gap:4px; margin:10px 0 16px; }
+.pgrid div{ display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:1.25rem; font-weight:700; }
+.pgrid .hd{ color:var(--muted); }
+.pgrid .cell{ border:1px solid var(--line); background:var(--paper); }
+.pgrid .cell.aff{ background:var(--accent); color:#fff; border-color:var(--accent); }
+.pgrid .cell.car{ box-shadow:inset 0 0 0 3px var(--accent); }
+
+footer.site{ border-top:1px solid var(--line); padding:22px 0 40px; color:var(--muted); font-size:.92rem; }
+
+@media (max-width: 860px){
+  .layout{ grid-template-columns:1fr; gap:16px; padding-top:12px; }
+  nav.topics{ position:static; margin:0 -20px; overflow-x:auto; }
+  nav.topics ul{ flex-direction:row; padding:0 20px; }
+  nav.topics .group{ display:none; }
+  nav.topics a{ white-space:nowrap; }
+  nav.topics a[aria-current="page"]{ box-shadow:inset 0 -3px 0 var(--c); }
+  .year{ grid-template-columns:1fr 1fr; }
+  .debate{ grid-template-columns:1fr; }
+  .disease dl{ grid-template-columns:1fr; }
+  .disease dt{ margin-top:6px; }
+  .face{ padding:56px 20px 20px; }
+  .face .tag{ left:20px; right:20px; }
+}
+@media (max-width: 480px){ .year{ grid-template-columns:1fr; } .flash{ aspect-ratio:auto; height:300px; } }
+@media (prefers-reduced-motion: reduce){ .flash{ transition:none; } .progress span{ transition:none; } }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap brand">
+    <div>
+      <div class="school">
+        <svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><path d="M1 1h16v9c0 6-4 9.5-8 11-4-1.5-8-5-8-11z" fill="currentColor"/></svg>
+        St Peter’s Diploma
+      </div>
+      <h1>Year 11 Biology</h1>
+    </div>
+    <div class="links">
+      <a class="pill" href="https://my.stpeters.school.nz/" target="_blank" rel="noopener">My St Peter’s portal</a>
+      <a class="pill" href="https://www.stpeters.school.nz/st-peters-diploma" target="_blank" rel="noopener">About the Diploma</a>
+      <a class="pill" href="https://docs.google.com/document/d/1aSsvZcpDsvgSNkTwm88lILhiX6gKP9dNQ4YTqSKxLFo/edit?usp=sharing" target="_blank" rel="noopener">Course overview</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="topics" aria-label="Topics"><ul id="topicNav"></ul></nav>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    Google Drive files open with your St Peter’s Google account. If a file says you need access, ask Mrs Cole.
+    Videos open on YouTube; some school networks need you to be signed in with your school account to watch.
+  </div>
+</footer>
+
+<script>
+/* ---------- Link helpers ---------- */
+const doc = id => `https://docs.google.com/document/d/${id}/edit?usp=sharing`;
+const slides = id => `https://docs.google.com/presentation/d/${id}/edit?usp=sharing`;
+const file = id => `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+const form = id => `https://docs.google.com/forms/d/${id}/viewform`;
+const yt = q => `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
+const ytv = id => `https://www.youtube.com/watch?v=${id}`;
+
+/* ---------- Content ---------- */
+const TOPICS = [
+{
+  id:"genetics", name:"Genetics", colour:"--genetics", term:"Term 1", group:"units",
+  blurb:"Variation, DNA structure and replication, mutations, inheritance, Punnett squares, test crosses, pedigree charts and meiosis.",
+  flash:[
+    ["What are the two types of variation?","Continuous variation (a range of values, e.g. height) and discontinuous variation (distinct groups, e.g. blood group)."],
+    ["What causes variation?","Genetic factors (alleles inherited from parents) and environmental factors (diet, climate, lifestyle). Most features are affected by both."],
+    ["What is DNA?","Deoxyribonucleic acid: a double helix made of two strands of nucleotides that carries the genetic code."],
+    ["What are the three parts of a nucleotide?","A phosphate group, a deoxyribose sugar and a nitrogenous base (A, T, C or G)."],
+    ["What are the complementary base-pairing rules?","Adenine pairs with thymine (A–T) and cytosine pairs with guanine (C–G)."],
+    ["What is a gene?","A section of DNA that codes for a specific protein, which produces a characteristic."],
+    ["What is an allele?","A different version of the same gene, e.g. the allele for brown eyes and the allele for blue eyes."],
+    ["What is a chromosome?","A long, tightly coiled strand of DNA wrapped around proteins. Humans have 46 (23 pairs) in body cells."],
+    ["When does DNA replication happen?","Before cell division, so that each new cell gets a full, identical copy of the DNA."],
+    ["What is semi-conservative replication?","Each new DNA molecule contains one original (parent) strand and one newly made strand."],
+    ["What does helicase do?","Unwinds the DNA and breaks the hydrogen bonds between base pairs, separating the strands."],
+    ["What does DNA polymerase do?","Adds free nucleotides to each template strand using complementary base pairing to build new strands."],
+    ["What is a mutation?","A permanent change in the base sequence of DNA."],
+    ["Name three types of gene mutation.","Substitution (one base swapped), insertion (a base added) and deletion (a base removed). Insertions and deletions cause a frameshift."],
+    ["What is a genotype?","The alleles an organism has for a trait, e.g. Bb."],
+    ["What is a phenotype?","The physical characteristic that is expressed, e.g. brown eyes. It depends on genotype and environment."],
+    ["Homozygous vs heterozygous?","Homozygous: two identical alleles (BB or bb). Heterozygous: two different alleles (Bb)."],
+    ["Dominant vs recessive?","A dominant allele is expressed whenever it is present. A recessive allele is only expressed when there are two copies (bb)."],
+    ["What ratio does a Bb × Bb cross give?","Genotypes 1 BB : 2 Bb : 1 bb. Phenotypes 3 dominant : 1 recessive (75% : 25%)."],
+    ["What is a test cross?","Crossing an individual showing the dominant phenotype with a homozygous recessive individual to find out if it is BB or Bb."],
+    ["How do you read a pedigree chart?","Squares are males, circles are females, shaded shapes are affected, horizontal lines join parents and vertical lines lead to children."],
+    ["What does meiosis produce?","Four genetically different haploid gametes (sex cells), each with half the chromosome number."],
+    ["What is crossing over?","Swapping sections of DNA between homologous chromosomes during meiosis, creating new combinations of alleles."],
+    ["What is independent assortment?","Homologous chromosome pairs line up and separate randomly in meiosis, so gametes get different mixes of chromosomes."],
+    ["How is sex determined in humans?","Females are XX and males are XY. The father’s sperm decides the sex of the child."]
+  ],
+  test:[
+    ["Which base pairs with adenine in DNA?",["Cytosine","Guanine","Thymine","Uracil"],2,"A always pairs with T, and C always pairs with G."],
+    ["Different versions of the same gene are called…",["Chromosomes","Alleles","Nucleotides","Genotypes"],1,"Alleles are alternative forms of one gene, e.g. B and b."],
+    ["An organism with the genotype Bb is…",["Homozygous dominant","Homozygous recessive","Heterozygous","A mutant"],2,"Two different alleles means heterozygous."],
+    ["Two Bb parents have a child. What is the chance it shows the recessive phenotype?",["0%","25%","50%","75%"],1,"The Punnett square gives BB, Bb, Bb, bb. Only bb (1 in 4) shows the recessive phenotype."],
+    ["A test cross is done by crossing the unknown individual with…",["A homozygous dominant individual","A heterozygous individual","A homozygous recessive individual","Another unknown individual"],2,"A homozygous recessive partner only passes on recessive alleles, so any recessive offspring prove the unknown parent is heterozygous."],
+    ["Human height is an example of…",["Discontinuous variation","Continuous variation","A mutation","Independent assortment"],1,"Height has a range of values with no distinct groups, so it is continuous."],
+    ["DNA replication is called semi-conservative because…",["Only half the DNA is copied","Each new molecule has one old strand and one new strand","Half the bases are changed","It happens in half the cells"],1,"Each parent strand acts as a template and stays in one of the two new molecules."],
+    ["A mutation where one base is swapped for a different base is a…",["Deletion","Insertion","Substitution","Frameshift"],2,"Substitution replaces one base. It may change one amino acid or none at all."],
+    ["Which event in meiosis swaps sections of DNA between homologous chromosomes?",["Fertilisation","Crossing over","Replication","Cytokinesis"],1,"Crossing over creates new combinations of alleles, increasing variation."],
+    ["In a pedigree chart a shaded square represents…",["An unaffected female","An affected female","An unaffected male","An affected male"],3,"Squares are males and shading means the person shows the trait."],
+    ["How many chromosomes are in a human gamete?",["23","46","92","22"],0,"Gametes are haploid, carrying one chromosome from each of the 23 pairs."],
+    ["Two unaffected parents have an affected child. The trait is most likely…",["Dominant","Recessive","Caused only by the environment","Always X-linked"],1,"Both parents must be carriers (heterozygous) who passed a recessive allele each to the child."]
+  ],
+  videos:[
+    ["DNA, Chromosomes, Genes, and Traits: An Intro to Heredity","Amoeba Sisters",ytv("8m6hHRlKwxY")],
+    ["DNA Replication (Updated)","Amoeba Sisters",ytv("Qqe4thU-os8")],
+    ["Mutations","Amoeba Sisters",ytv("vl6Vlf2thvI")],
+    ["Alleles and Genes","Amoeba Sisters",ytv("pv3Kj0UjiLE")],
+    ["Monohybrids and the Punnett Square Guinea Pigs","Amoeba Sisters",ytv("i-0rSv6oxSY")],
+    ["Pedigrees","Amoeba Sisters",ytv("Gd09V2AkZv4")],
+    ["Punnett Squares and Sex-Linked Traits","Amoeba Sisters",ytv("h2xufrHWG3E")],
+    ["Asexual and Sexual Reproduction","Amoeba Sisters",ytv("fcGDUcGjcyk")],
+    ["Meiosis (Updated)","Amoeba Sisters",ytv("VzDMG7ke69g")],
+    ["Mitosis vs. Meiosis: Side by Side Comparison","Amoeba Sisters",ytv("zrKdz93WlVk")],
+    ["Variation: continuous and discontinuous","FuseSchool (search)",yt("FuseSchool variation continuous discontinuous")]
+  ],
+  files:[
+    {h:"Lesson slides", items:[
+      ["Genetic Diversity: Variation","Slides",file("1SZVWFLPCoZliVoxxyD6h7kKXhB5UHhhl"),"Week 1: types and causes of variation"],
+      ["Genetic Material and Inheritance","Slides",file("1qLHN8x7-NBmyMTlZW48XnmbP8YQqZrci"),"DNA, genes, alleles and chromosomes"],
+      ["DNA Structure and Replication","Slides",file("1wx1ZtSAp0DYZc_HBy6wd03PMRZ06pHjT"),"Weeks 2–3: structure, replication and mutations"],
+      ["DNA, genes, alleles, pedigree charts, genes to proteins","Slides",file("1sPR86n45xNZXt1MtrcvQtVDqo1L6zwwk"),"Pedigree charts and how genes code for proteins"],
+      ["Inheritance","Slides",file("1NaIaB_8pysYYFvL_NfKcjmYGSTAHBEeY"),"Weeks 4–5: key terms, Punnett crosses and test crosses"]
+    ]},
+    {h:"Notes and cue cards", items:[
+      ["Cue Cards: Genetics","Doc",doc("1qGkItbINW9ixFSvv75uORM8RODPG1pyfhEugftyzBxA"),"Printable cue cards with diagrams"],
+      ["Level 1 Bio Cue Cards: Genetics","Word",file("1YkMf27nvT75TH37iTvqeTaKhdk1rj_5z"),"Extra set of revision cards"]
+    ]},
+    {h:"Quizzes from class", items:[
+      ["Genetics and Inheritance: First 20 Key Terms","Form",form("1p6wIO1ywvBrnA3bL7RjsVfnerGX5rpKiIck3TpzlAEM"),"Google Forms key-terms quiz"]
+    ]}
+  ]
+},
+{
+  id:"cells", name:"Cells", colour:"--cells", term:"Term 2", group:"units",
+  blurb:"Prokaryotic and eukaryotic cells, specialised cells, cell transport, enzymes, respiration and photosynthesis.",
+  flash:[
+    ["What is a prokaryotic cell?","A cell with no nucleus or membrane-bound organelles, e.g. bacteria. DNA is loose in the cytoplasm, often as a circular chromosome and plasmids."],
+    ["What is a eukaryotic cell?","A cell with a nucleus and membrane-bound organelles, e.g. plant, animal and fungal cells."],
+    ["What does the nucleus do?","Contains DNA and controls the cell’s activities."],
+    ["What do mitochondria do?","Carry out aerobic respiration, releasing energy as ATP."],
+    ["What do ribosomes do?","Make proteins. They are found in both prokaryotic and eukaryotic cells."],
+    ["Which structures are found in plant cells but not animal cells?","A cellulose cell wall, chloroplasts and a large permanent vacuole."],
+    ["What is a specialised cell?","A cell with a structure adapted to a particular job, e.g. red blood cells (no nucleus, more room for haemoglobin) or root hair cells (large surface area)."],
+    ["What is diffusion?","The net movement of particles from high to low concentration. It is passive, so it needs no ATP."],
+    ["What is osmosis?","The diffusion of water across a partially permeable membrane, from a dilute solution (high water concentration) to a concentrated one."],
+    ["What is active transport?","Moving substances against the concentration gradient (low to high) using protein pumps and ATP."],
+    ["Compare passive and active transport.","Passive uses no ATP and moves high to low. Active uses ATP and protein pumps to move low to high."],
+    ["What is cytosis?","The membrane changes shape to form vesicles that bring substances in (endocytosis) or release them out (exocytosis), e.g. enzyme secretion."],
+    ["How does surface area to volume ratio affect cells?","As a cell grows, SA:V decreases, so diffusion becomes too slow to supply the whole cell. This limits cell size."],
+    ["What are enzymes?","Biological catalysts (proteins) that speed up reactions by lowering the activation energy."],
+    ["What happens at the active site?","The substrate fits into the active site to form an enzyme–substrate complex. Bonds are broken or made, then products are released."],
+    ["What factors affect enzyme activity?","Temperature, pH, substrate concentration, enzyme concentration and inhibitors."],
+    ["What does denatured mean?","High temperature or extreme pH changes the shape of the active site, so the substrate no longer fits and the enzyme stops working."],
+    ["What is the purpose of respiration?","To break down glucose to release energy as ATP, which cells use for life processes."],
+    ["Word equation for aerobic respiration?","Glucose + oxygen → carbon dioxide + water (+ ATP energy)."],
+    ["Compare aerobic and anaerobic respiration.","Aerobic needs oxygen, happens in the cytoplasm and mitochondria and makes about 38 ATP per glucose. Anaerobic needs no oxygen, happens in the cytoplasm only and makes 2 ATP."],
+    ["What is glycolysis?","The first stage of respiration, in the cytoplasm: glucose is split into 2 pyruvate, making 2 ATP."],
+    ["Word equation for photosynthesis?","Carbon dioxide + water → glucose + oxygen, using light energy absorbed by chlorophyll."],
+    ["Where does photosynthesis happen?","In chloroplasts. Light-dependent reactions happen in the thylakoids; the light-independent reaction happens in the stroma."],
+    ["What limits the rate of photosynthesis?","Light intensity, carbon dioxide concentration and temperature. The rate rises with each until another factor becomes limiting."]
+  ],
+  test:[
+    ["Which structure is found in prokaryotic cells?",["Nucleus","Mitochondria","Ribosomes","Chloroplasts"],2,"Prokaryotes have ribosomes but no nucleus or membrane-bound organelles."],
+    ["Where does most aerobic respiration take place?",["Nucleus","Mitochondria","Ribosomes","Cell wall"],1,"Mitochondria carry out the later stages of aerobic respiration, making most of the ATP."],
+    ["Which is found in plant cells but not animal cells?",["Cell membrane","Cytoplasm","Cell wall","Nucleus"],2,"Plant cells have a cellulose cell wall; animal cells do not."],
+    ["Osmosis is the movement of…",["Glucose from high to low concentration","Water across a partially permeable membrane from dilute to concentrated solution","Any particle using ATP","Water from concentrated to dilute solution"],1,"Osmosis is diffusion of water, from high water concentration (dilute) to low water concentration (concentrated)."],
+    ["How is active transport different from diffusion?",["It needs ATP and moves substances against the gradient","It only moves water","It is faster and needs no energy","It only happens in plants"],0,"Active transport uses protein pumps and ATP to move substances from low to high concentration."],
+    ["As a cell gets bigger, its surface area to volume ratio…",["Increases","Stays the same","Decreases","Doubles"],2,"Volume grows faster than surface area, so SA:V falls and diffusion can’t keep up."],
+    ["Why does a very high temperature stop an enzyme working?",["It uses up the substrate","The active site changes shape (denatures)","The enzyme makes more product","The enzyme becomes a substrate"],1,"Heat breaks bonds that hold the enzyme’s shape, so the substrate no longer fits."],
+    ["What do human muscle cells produce during anaerobic respiration?",["Lactic acid","Ethanol and carbon dioxide","Oxygen","Glucose"],0,"Animal cells make lactic acid; yeast and plants make ethanol and carbon dioxide."],
+    ["What are the raw materials (reactants) of photosynthesis?",["Glucose and oxygen","Carbon dioxide and water","Oxygen and water","Glucose and carbon dioxide"],1,"Carbon dioxide and water are combined using light energy to make glucose and oxygen."],
+    ["Compared with anaerobic respiration, aerobic respiration…",["Releases much more ATP per glucose","Releases less ATP","Doesn’t need glucose","Only happens in plants"],0,"About 38 ATP compared with 2 ATP per glucose molecule."],
+    ["Enzymes speed up reactions by…",["Raising the temperature","Lowering the activation energy","Being used up in the reaction","Adding more substrate"],1,"Catalysts lower the energy needed to start the reaction and are not used up."]
+  ],
+  videos:[
+    ["Microscopes and How to Use a Light Microscope","Amoeba Sisters",ytv("tVcEEw6qbBQ")],
+    ["Introduction to Cells: The Grand Cell Tour","Amoeba Sisters",ytv("8IlzKri08kk")],
+    ["Prokaryotic vs. Eukaryotic Cells (Updated)","Amoeba Sisters",ytv("Pxujitlv8wc")],
+    ["Specialized Cells: Significance and Examples","Amoeba Sisters",ytv("wNe6RuK0FfA")],
+    ["Inside the Cell Membrane","Amoeba Sisters",ytv("qBCVVszQQNs")],
+    ["Diffusion","Amoeba Sisters",ytv("jhszFBtBPoI")],
+    ["Osmosis and Water Potential","Amoeba Sisters",ytv("L-osEc07vMs")],
+    ["Cell Transport","Amoeba Sisters",ytv("Ptmlvtei8hw")],
+    ["Enzymes (Updated)","Amoeba Sisters",ytv("qgVFkRn8f10")],
+    ["What is ATP?","Amoeba Sisters",ytv("23ZzI6WZS28")],
+    ["Cellular Respiration (Updated)","Amoeba Sisters",ytv("4Eo7JtRA7lg")],
+    ["Fermentation","Amoeba Sisters",ytv("YbdkbCU20_M")],
+    ["Photosynthesis (Updated)","Amoeba Sisters",ytv("CMiPYHNNg28")],
+    ["Surface area to volume ratio","FuseSchool (search)",yt("FuseSchool surface area to volume ratio")]
+  ],
+  files:[
+    {h:"Lesson slides", items:[
+      ["Cell Processes: Plant vs Animal Cells, Organelles","Slides",file("1g1DahIVnCEmX68QAKG2HqTnLvQW8nAfX"),"Eukaryotic cell structure"],
+      ["Cells and Cell Processes, Magnification","Slides",file("1rtoydtuqi9St9luqeVNhxopKXWx-S2tR"),"Lessons 1–3"],
+      ["Bacterial Cells, Growth, Analysis","Slides",file("1MAeDbYHXvZttvw7TJgjzUoMiZat2S5iN"),"Lessons 4–6: prokaryotic cells"],
+      ["Drawing from an Electron Micrograph","Slides",file("1DeqDOXJq7RW_vG0R0WooUQ_UUd9D_fqQ"),"Lesson 7"],
+      ["Balancing Cell Size and Efficient Diffusion","Slides",file("1eH2jthLwB5e_Bz9Io_wc7zwm-i43owb0"),"Surface area to volume ratio"],
+      ["Enzymes","Slides",file("1TakpXhAu4uMTW11M5HjqIQQFFwpaTl_N"),"Lessons 8–9: factors affecting enzyme activity"],
+      ["Metabolic Pathways","Slides",file("1Lpxg2UZhJfnVgmYfq35_hwZPyMe3RsFr"),"Lesson 10"],
+      ["Photosynthesis, Respiration, Transport","Slides",file("1yC91DGEwMolXpGMZsl-kO3TJAf2fC41D"),"Lessons 11–15"]
+    ]},
+    {h:"Notes and cue cards", items:[
+      ["Cells Revision Booklet 2026","Doc",doc("1kmbl2vc1Y74DzWtKiKfjIN3Z_SsQpzeP8U-PLsZKD9Y"),"Full revision booklet for the unit"],
+      ["Cue Cards: Cells","Doc",doc("1C5XmFvEV_xMdOmYvtT89krqI6SjkcMLBvXjiOn4f74k"),"Cue cards with diagrams"],
+      ["Cells Revision Cue Cards (printable)","PDF",file("1iHIAydblCpUt3X6D1iKZknvkV5Gq7HWV"),"Print double-sided, flip on long edge"]
+    ]},
+    {h:"Practice", items:[
+      ["Cells: Study Revision Questions","Doc",doc("1mkskXwlbPDHDD2fsrgR-w1fmMaz5GLwPoA3E7-VPQgk"),"Revision questions with answers to check yourself"],
+      ["Station 2 Exercise: Cells","Doc",doc("1Fh8VFf1QtiO-t3Yz9cAw-IEAuCaCZZ8ljsjxHrN9dmc"),"Class station activity"]
+    ]}
+  ]
+},
+{
+  id:"immunity", name:"Immunity", colour:"--immunity", term:"Terms 2–3", group:"units",
+  blurb:"Pathogens and transmissible disease, the three lines of defence, passive and active immunity, treatments, vaccination, antibiotic resistance and aseptic technique.",
+  flash:[
+    ["What is a pathogen?","A disease-causing organism, such as a bacterium, virus, fungus or protist."],
+    ["What is a transmissible disease?","A disease in which the pathogen can be passed from one host to another."],
+    ["Give examples of direct contact transmission.","Skin-to-skin contact, kissing, sexual contact, blood transfusion and sharing needles."],
+    ["Give examples of indirect transmission.","Contaminated surfaces (doorknobs, phones), food or water, animals (vectors) and air from coughs and sneezes."],
+    ["How do clean water, food hygiene and handwashing control disease?","Clean water prevents cholera and typhoid; hygienic food prep prevents salmonella; handwashing and covering coughs reduce spread."],
+    ["What is immunity?","The body’s ability to resist infection by pathogens."],
+    ["What are the two types of immunity?","Innate (non-specific) and acquired (specific)."],
+    ["What is the first line of defence?","Innate barriers that stop pathogens entering: skin (physical barrier), stomach acid (kills pathogens), mucus (traps pathogens) and clotting (seals wounds)."],
+    ["What is the second line of defence?","An innate response if pathogens get past the first line: inflammation, and phagocytes (neutrophils and macrophages) that engulf and digest pathogens."],
+    ["What is the third line of defence?","Acquired, specific immunity that targets particular pathogens using lymphocytes, antibodies and memory cells."],
+    ["What is an antigen?","A molecule on the surface of a pathogen with a unique shape that the immune system recognises."],
+    ["What does a macrophage do after engulfing a pathogen?","It presents the pathogen’s antigen on its surface to B cells and T helper cells."],
+    ["What do B cells do?","They multiply and produce antibodies specific to the antigen."],
+    ["What is an antibody?","A protein that binds to a specific antigen, blocking the pathogen or marking it for destruction by phagocytes."],
+    ["What do T helper and T killer cells do?","T helper cells activate B cells, T killer cells and macrophages. T killer cells release chemicals that kill infected body cells."],
+    ["What do memory cells do?","They remember the antigen, allowing a faster, stronger response if the same pathogen returns."],
+    ["What is passive immunity?","Short-term immunity from antibodies received from another individual. No memory cells. Immediate but lasts weeks to months."],
+    ["Give natural examples of passive immunity.","Antibodies crossing the placenta (IgG) and antibodies in breast milk and colostrum (IgA)."],
+    ["What is active immunity?","Long-term immunity made by your own immune system after infection or vaccination. Lymphocytes make antibodies and memory cells."],
+    ["What are the three steps of vaccination?","1. Weakened pathogens or antigens enter the body. 2. B cells make antibodies. 3. Memory cells give long-term immunity."],
+    ["How does vaccination help control disease?","It protects individuals and reduces spread through herd immunity, which can lead to elimination or eradication (e.g. polio)."],
+    ["Why don’t antibiotics work on viruses?","Antibiotics target bacterial structures and processes. Viruses don’t have these and replicate inside our cells."],
+    ["How does antibiotic resistance develop?","Overuse or misuse lets resistant bacteria survive, reproduce and pass on resistance genes."],
+    ["How can antibiotic resistance be reduced?","Only use antibiotics when prescribed, finish the full course, use good hygiene and vaccination."],
+    ["What is the purpose of aseptic technique?","To prevent contamination of cultures by unwanted microorganisms."]
+  ],
+  test:[
+    ["A pathogen is…",["Any microorganism","A disease-causing organism","A white blood cell","An antibiotic"],1,"Not all microbes cause disease; pathogens are the ones that do."],
+    ["Which is part of the first line of defence?",["Phagocytes","Antibodies","Stomach acid","Memory cells"],2,"Skin, stomach acid, mucus and clotting stop pathogens getting in."],
+    ["Phagocytes engulfing pathogens is part of the…",["First line of defence","Second line of defence","Third line of defence","Passive immunity"],1,"The second line is innate: inflammation and phagocytosis."],
+    ["Which cells produce antibodies?",["B cells","T killer cells","Red blood cells","Macrophages"],0,"B lymphocytes multiply and release antibodies specific to the antigen."],
+    ["A baby receiving antibodies in breast milk is an example of…",["Active immunity","Passive immunity","Herd immunity","Innate immunity"],1,"The antibodies come from another person and no memory cells are made."],
+    ["Vaccines contain…",["Antibiotics","Antibodies from another person","Weakened or dead pathogens or their antigens","Phagocytes"],2,"The antigens trigger your own immune system to make antibodies and memory cells."],
+    ["Why are antibiotics not used to treat the flu?",["Flu is caused by a virus, and viruses lack the structures antibiotics target","Flu bacteria are always resistant","Antibiotics only work on fungi","The flu is not transmissible"],0,"Antibiotics target bacteria; viruses replicate inside our own cells."],
+    ["Herd immunity means…",["Only farm animals are vaccinated","Enough people are immune that a pathogen can’t spread easily, protecting those who aren’t","Everyone has passive immunity","Antibiotics are shared in a community"],1,"High vaccination rates break chains of transmission."],
+    ["Antibiotic resistance increases mainly because…",["Bacteria choose to become resistant","Resistant bacteria survive antibiotic use and reproduce","Viruses swap genes with bacteria","People take vaccines"],1,"This is natural selection: the survivors pass on resistance genes."],
+    ["Why are agar plates incubated lid-down and below 37 °C in school labs?",["To grow bigger colonies faster","To stop condensation dripping onto colonies and reduce the risk of growing human pathogens","To kill the bacteria","To make the agar set"],1,"Inverting stops condensation; keeping to 25 °C in school labs reduces the chance of culturing pathogens."]
+  ],
+  videos:[
+    ["Immune System","Amoeba Sisters",ytv("fSEFXl2XQpc")],
+    ["Antibiotics, Antivirals, and Vaccines","Amoeba Sisters",ytv("uVUf_pt7Sh0")],
+    ["Bacteria","Amoeba Sisters",ytv("ORB866QSGv8")],
+    ["Viruses","Amoeba Sisters",ytv("8FqlTslU22s")],
+    ["Natural Selection (includes antibiotic resistance)","Amoeba Sisters",ytv("7VM9YxmULuo")],
+    ["Aseptic technique","YouTube search",yt("aseptic technique agar plate GCSE")]
+  ],
+  files:[
+    {h:"Lesson slides", items:[
+      ["Immunity: full unit, Term 3 2026","Slides",slides("1-Gxpe5yJWBuU_TuT4By4dLrIAc63G_OPGX5ASaY8poY"),"The whole unit in one deck"],
+      ["The Biological Arms Race","Slides",file("15u9OWR4HwK99TEP66G-LzlbdetCFgM0n"),"Pathogens vs the immune system, and antibiotic resistance"]
+    ]},
+    {h:"Notes and cue cards", items:[
+      ["Immunity Cue Cards (printable)","PDF",file("17IPrFDmQphwrkmaE7z0cD6RfB8WNiRVa"),"48 cards; print double-sided, flip on long edge"]
+    ]}
+  ]
+},
+{
+  id:"responses", name:"Human Responses", colour:"--responses", term:"Terms 3–4", group:"units",
+  blurb:"The nervous system, neurons and reflexes, synapses, hormones and adrenaline, homeostasis, thermoregulation and blood glucose control.",
+  flash:[
+    ["What is the CNS?","The central nervous system: the brain and spinal cord."],
+    ["What is the PNS?","The peripheral nervous system: the nerves outside the brain and spinal cord."],
+    ["What does the nervous system do?","It coordinates and regulates body functions using electrical impulses that travel along neurons."],
+    ["Sensory, relay and motor neurons?","Sensory neurons carry impulses from receptors to the CNS. Relay neurons are in the CNS and connect them. Motor neurons carry impulses from the CNS to effectors."],
+    ["What is an effector?","A muscle or gland that produces a response."],
+    ["What is a reflex action?","A rapid, automatic response that doesn’t involve conscious thought."],
+    ["What is the pathway of a reflex arc?","Stimulus → receptor → sensory neuron → relay neuron → motor neuron → effector → response."],
+    ["What do the four receptor types detect?","Photoreceptors: light. Mechanoreceptors: sound and pressure. Chemoreceptors: chemicals. Thermoreceptors: temperature."],
+    ["What is a synapse?","A junction between two neurons."],
+    ["What happens at a synapse?","An impulse arrives; neurotransmitters are released from vesicles, diffuse across the gap, bind to receptors on the next neuron and a new impulse starts."],
+    ["Why is synaptic transmission one-way?","Vesicles of neurotransmitter are only on the presynaptic side and receptors are only on the postsynaptic side."],
+    ["What is a hormone?","A chemical messenger made by a gland, carried in the blood, that affects target organs."],
+    ["Compare nervous and hormonal control.","Nervous: very fast, short-lasting, electrical impulses in neurons. Hormonal: slower, longer-lasting, chemicals in the blood."],
+    ["What is adrenaline and what does it do?","A hormone released in fight-or-flight situations. It increases heart rate, breathing rate, pupil size and blood glucose to supply muscles with oxygen and glucose."],
+    ["What is homeostasis?","Keeping a constant internal environment despite internal or external changes."],
+    ["What is negative feedback?","A change from the set point is detected and the response reverses the change, returning conditions to the set point."],
+    ["What detects temperature changes?","The hypothalamus monitors blood temperature; skin thermoreceptors detect external temperature."],
+    ["Responses when too hot?","Vasodilation, sweating and hairs lying flat, so more heat is lost."],
+    ["Responses when too cold?","Vasoconstriction, shivering and hairs being raised, reducing heat loss and increasing heat production."],
+    ["Why does thermoregulation matter for enzymes?","Enzymes work best at an optimum (about 37 °C). Too hot denatures them; too cold slows reactions."],
+    ["How does insulin lower blood glucose?","The pancreas releases insulin; cells take up glucose and the liver converts glucose to glycogen for storage."],
+    ["How does glucagon raise blood glucose?","The pancreas releases glucagon; the liver converts glycogen back to glucose and releases it into the blood."],
+    ["Compare Type 1 and Type 2 diabetes.","Type 1: the pancreas makes little or no insulin; managed with insulin injections. Type 2: cells stop responding to insulin and/or too little is made; managed with diet, exercise, tablets and sometimes insulin."],
+    ["Why do heart and breathing rates rise during exercise?","To deliver more oxygen and glucose to muscles for respiration and remove more carbon dioxide."]
+  ],
+  test:[
+    ["The central nervous system is made of…",["The brain and spinal cord","All the nerves in the body","Sensory and motor neurons","The brain and the eyes"],0,"Everything else is the peripheral nervous system."],
+    ["What is the correct order of a reflex arc?",["Receptor → motor neuron → relay neuron → sensory neuron → effector","Receptor → sensory neuron → relay neuron → motor neuron → effector","Effector → motor neuron → relay neuron → receptor","Sensory neuron → receptor → effector → motor neuron"],1,"The impulse goes from the receptor, into the CNS via the relay neuron, and out to the effector."],
+    ["Where are relay neurons found?",["In the skin","In muscles","In the CNS","In glands"],2,"Relay neurons connect sensory and motor neurons inside the brain or spinal cord."],
+    ["Which chemicals carry the signal across a synapse?",["Hormones","Neurotransmitters","Enzymes","Antibodies"],1,"Neurotransmitters diffuse across the gap and bind to receptor proteins."],
+    ["How do hormones travel to their target organs?",["Along neurons","In the blood","Across synapses","Through the lymph only"],1,"Hormones are secreted into the bloodstream by glands."],
+    ["Which is an effect of adrenaline?",["Slower heart rate","Lower blood glucose","Faster heart rate","Smaller pupils"],2,"Adrenaline prepares the body for fight or flight."],
+    ["When you are too hot your body responds with…",["Vasoconstriction and shivering","Vasodilation and sweating","Hairs raised and shivering","Less blood to the skin"],1,"More blood flows near the skin surface and sweat evaporates, losing heat."],
+    ["Which part of the brain monitors blood temperature?",["Cerebellum","Hypothalamus","Medulla","Cerebrum"],1,"The hypothalamus acts as the control centre for thermoregulation."],
+    ["After a sugary meal, blood glucose rises. What happens next?",["The pancreas releases glucagon","The pancreas releases insulin","The liver releases glucose","Adrenaline is released"],1,"Insulin causes cells to take up glucose and the liver to store it as glycogen."],
+    ["Glucagon raises blood glucose by…",["Making cells take up glucose","Causing the liver to break glycogen down into glucose","Increasing sweating","Stopping digestion"],1,"Glucagon reverses insulin’s effect when glucose is low."],
+    ["Negative feedback means…",["A response makes the change bigger","A response reverses the change back to the set point","No response happens","Only hormones are involved"],1,"This keeps conditions in a narrow range."]
+  ],
+  videos:[
+    ["Nervous System","Amoeba Sisters",ytv("RNLceVI8jcc")],
+    ["Endocrine System","Amoeba Sisters",ytv("emvHaBiRY8Q")],
+    ["Homeostasis and Negative/Positive Feedback","Amoeba Sisters",ytv("Iz0Q9nTZCw4")],
+    ["Reflex arc","FuseSchool (search)",yt("FuseSchool reflex arc")],
+    ["Synapses","FuseSchool (search)",yt("FuseSchool synapse")],
+    ["Thermoregulation","FuseSchool (search)",yt("FuseSchool thermoregulation body temperature")],
+    ["Blood glucose: insulin and glucagon","FuseSchool (search)",yt("FuseSchool controlling blood glucose insulin glucagon")]
+  ],
+  files:[
+    {h:"Lesson slides", items:[
+      ["Human Responses: Lessons 1–2","Slides",slides("1lXj5RAAmBVy5USf_OLbnROXYLIVDarSiNVNlTH5qC7k"),"Nervous system, neurons and reflexes"],
+      ["2026 Human Responses: Homeostasis","Slides",slides("1APJGatkgF44Xm2yEtV6T-0hd_9bqkLWUb7ht-yDR_DY"),"Thermoregulation and glucose control"]
+    ]},
+    {h:"Notes and cue cards", items:[
+      ["Learning outcomes: Human Responses","Doc",doc("1kGINOFZC9mZjK2BGVUOiX-krvjpdUU2xugavP_RSDTY"),"What you need to know for the test"],
+      ["Two-Page Revision Notes","Doc",doc("1cyVMuu9I5xyAxft-rYGNDU5h61r4OyDMreKnNIZpFFw"),"Quick summary of the unit"],
+      ["Human Responses Study Notes","Word",file("1RpZUme5dVW6NrOGlnTdOap5TXjWkbpz7"),"Full study notes"],
+      ["Human Responses Cue Cards (printable)","PDF",file("16Q2B2UiB3yu0uD_Gf1cGMXPnK_Uf6EUU"),"48 cards from recall to discuss level"]
+    ]},
+    {h:"Practice", items:[
+      ["Human Responses Quiz","Doc",doc("1r6aMUGFcOFE1WDlIkCS498EUR8gZAFo_WonR79nT5E0"),"Class quiz"]
+    ]}
+  ]
+},
+{
+  id:"diseases", name:"Genetic Diseases Project", colour:"--diseases", term:"Term 1", group:"projects",
+  blurb:"Research task: discuss the inheritance of a genetic disease and advise a friend on genetic testing.",
+  custom:"diseases"
+},
+{
+  id:"diabetes", name:"Type 2 Diabetes Paper", colour:"--diabetes", term:"Term 4", group:"projects",
+  blurb:"Research task: should New Zealand introduce a sugar tax to help address the growing incidence of Type 2 diabetes?",
+  custom:"diabetes"
+}
+];
+
+/* ---------- Project content ---------- */
+const DISEASES = {
+  flash:[
+    ["What is an autosomal disorder?","A disorder caused by an allele on one of the 22 pairs of non-sex chromosomes (autosomes), so it affects males and females equally."],
+    ["Autosomal dominant inheritance?","Only one copy of the faulty allele is needed to have the disease. An affected parent (Hh) has a 50% chance of passing it on. Example: Huntington’s."],
+    ["Autosomal recessive inheritance?","Two copies of the faulty allele are needed. Two carrier parents (Ff × Ff) have a 25% chance of an affected child. Example: cystic fibrosis."],
+    ["What is a carrier?","A person with one copy of a recessive disease allele. They have no symptoms but can pass the allele on."],
+    ["What is X-linked recessive inheritance?","The faulty allele is on the X chromosome. Males (XY) have only one X, so one faulty allele causes the disease. Females are usually carriers. Example: DMD."],
+    ["Which gene causes cystic fibrosis?","The CFTR gene on chromosome 7, which codes for a chloride channel protein in cell membranes."],
+    ["Which gene causes Huntington’s disease?","The HTT gene on chromosome 4. Too many CAG repeats make a faulty huntingtin protein that damages brain cells."],
+    ["Which gene causes Duchenne muscular dystrophy?","The DMD gene on the X chromosome, which codes for dystrophin, a protein that protects muscle fibres."],
+    ["What is predictive genetic testing?","Testing a person with no symptoms to see if they carry an allele that will cause a disease later, e.g. Huntington’s."],
+    ["What is carrier testing?","Testing to find out whether someone carries one copy of a recessive allele, often before starting a family."],
+    ["What is genetic counselling?","Support from a trained professional to understand genetic risks, testing options and the impact of results."],
+    ["What is newborn screening?","The heel-prick blood test given to NZ babies shortly after birth. It screens for conditions including cystic fibrosis."]
+  ],
+  test:[
+    ["Huntington’s disease is inherited as…",["Autosomal recessive","Autosomal dominant","X-linked recessive","Caused by the environment"],1,"One faulty HTT allele is enough to cause the disease."],
+    ["Two carriers of cystic fibrosis (Ff × Ff) have a child. The chance the child has CF is…",["0%","25%","50%","100%"],1,"Only ff (1 in 4) has the disease; Ff children (2 in 4) are carriers."],
+    ["Why does Duchenne muscular dystrophy mostly affect boys?",["Boys have more muscle","The allele is on the X chromosome and boys have only one X","The allele is on the Y chromosome","It is dominant in boys only"],1,"A girl would need two faulty X chromosomes; a boy needs only one."],
+    ["A parent with Huntington’s (Hh) and an unaffected parent (hh) have a child. The chance the child inherits it is…",["25%","50%","75%","100%"],1,"Half of the gametes from the Hh parent carry H."],
+    ["Thick, sticky mucus in the lungs and pancreas is the main symptom of…",["Huntington’s disease","Cystic fibrosis","Duchenne muscular dystrophy","Haemophilia"],1,"Faulty CFTR proteins disrupt salt and water movement, making mucus thick."],
+    ["A person with one copy of a recessive disease allele and no symptoms is a…",["Mutant","Carrier","Homozygous recessive","Dominant"],1,"Carriers can pass the allele on to their children."]
+  ],
+  videos:[
+    ["Huntington disease: causes, symptoms, diagnosis, treatment","Osmosis from Elsevier (university level)",ytv("IuSaXiRVqg0")],
+    ["Cystic fibrosis: causes, symptoms, diagnosis, treatment","Osmosis from Elsevier (university level)",ytv("BhFpFiZumS0")],
+    ["Duchenne & Becker muscular dystrophy: causes, symptoms, treatment","Osmosis from Elsevier (university level)",ytv("DGOmN6rnsNk")],
+    ["Sickle cell anemia: causes, symptoms, diagnosis, treatment","Osmosis from Elsevier (university level)",ytv("1ql-X60CUNQ")],
+    ["Monohybrids and the Punnett Square Guinea Pigs","Amoeba Sisters",ytv("i-0rSv6oxSY")],
+    ["Punnett Squares and Sex-Linked Traits (for DMD)","Amoeba Sisters",ytv("h2xufrHWG3E")],
+    ["Pedigrees","Amoeba Sisters",ytv("Gd09V2AkZv4")],
+    ["What is genetic testing?","YouTube search",yt("genetic testing explained carrier predictive")]
+  ]
+};
+
+const DIABETES = {
+  flash:[
+    ["What is the normal blood glucose range?","Around 4–7 mmol/L (about 5 mmol/L, or 90 mg/100 mL)."],
+    ["Which organ detects blood glucose levels?","The pancreas (islets of Langerhans). Beta cells release insulin; alpha cells release glucagon."],
+    ["What does insulin do?","Binds to receptors on cells, opening glucose channels so glucose enters for respiration. The liver and muscles store extra glucose as glycogen."],
+    ["What does glucagon do?","Causes the liver to break down glycogen into glucose and release it into the blood."],
+    ["What is Type 2 diabetes?","A condition where body cells become resistant to insulin and/or the pancreas can’t make enough, so blood glucose stays high."],
+    ["What is insulin resistance?","Cells stop responding properly to insulin, so glucose can’t enter them easily and builds up in the blood."],
+    ["Risk factors for Type 2 diabetes?","Excess weight, high-sugar diet, low physical activity, family history, age and ethnicity (higher rates in Māori, Pacific and South Asian communities in NZ)."],
+    ["Why does high blood glucose cause thirst and frequent urination?","Kidneys can’t reabsorb all the glucose, so it is lost in urine. Water follows by osmosis, causing dehydration and thirst."],
+    ["Why do people with Type 2 feel tired?","Glucose can’t get into cells easily, so cells have less glucose for respiration and less ATP."],
+    ["Long-term complications of Type 2?","Damage to blood vessels and nerves: heart disease, stroke, kidney failure, blindness, slow-healing foot ulcers and amputation."],
+    ["What is hypoglycaemia?","Low blood glucose: dizziness, shaking, confusion and fainting because cells lack glucose for respiration. Can lead to coma."],
+    ["What is hyperglycaemia?","High blood glucose: thirst, frequent urination, tiredness and blurred vision. Untreated, it can lead to coma."],
+    ["What is a sugar tax?","A tax on sugar-sweetened beverages (and sometimes foods) that raises their price so people buy less."],
+    ["Name a country with a sugary drinks tax.","The UK (Soft Drinks Industry Levy, 2018). Mexico (2014) and many others; WHO reports over 100 countries tax sugary drinks."]
+  ],
+  test:[
+    ["Which hormone lowers blood glucose?",["Glucagon","Adrenaline","Insulin","Thyroxine"],2,"Insulin is released by beta cells in the pancreas when glucose is high."],
+    ["In Type 2 diabetes, the main problem is usually…",["The immune system destroys the pancreas","Body cells don’t respond properly to insulin","The liver makes too much glucagon","There is no glucose in the blood"],1,"Insulin resistance is the key feature; the pancreas may also struggle to keep up."],
+    ["Why does high blood glucose make people thirsty?",["Glucose is sweet","Glucose in urine draws water out by osmosis, causing dehydration","The pancreas uses water","Insulin causes sweating"],1,"Link the symptom to osmosis and the kidneys."],
+    ["Which is a modifiable risk factor for Type 2 diabetes?",["Age","Family history","Physical activity","Ethnicity"],2,"Diet and exercise can be changed; age, genes and ethnicity cannot."],
+    ["Glucagon raises blood glucose by acting on…",["Muscle cells only","The liver, which breaks down glycogen","The kidneys","The brain"],1,"The liver is the body’s glucose store."],
+    ["A sugar tax aims to…",["Ban all sugar","Raise the price of sugary products so people buy less","Pay for insulin only","Make drinks cheaper"],1,"Some taxes are tiered by sugar content to push companies to reformulate."]
+  ],
+  videos:[
+    ["Homeostasis and Negative/Positive Feedback","Amoeba Sisters",ytv("Iz0Q9nTZCw4")],
+    ["Endocrine System (includes the pancreas)","Amoeba Sisters",ytv("emvHaBiRY8Q")],
+    ["Diabetes mellitus (type 1, type 2) & diabetic ketoacidosis","Osmosis from Elsevier (university level)",ytv("-B-RVybvffU")],
+    ["Diabetes in New Zealand","YouTube search",yt("type 2 diabetes New Zealand rates RNZ")],
+    ["Does a sugar tax work?","YouTube search",yt("does a sugar tax work explained")],
+    ["New Zealand sugar tax debate","YouTube search",yt("New Zealand sugar tax debate")]
+  ]
+};
+
+/* ---------- State ---------- */
+const store = {
+  get(k,d){ try{ const v = localStorage.getItem("y11bio:"+k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem("y11bio:"+k, JSON.stringify(v)); }catch(e){} }
+};
+let currentSub = {};
+
+/* ---------- Nav ---------- */
+function renderNav(active){
+  const nav = document.getElementById("topicNav");
+  let html = `<li><a href="#home" style="--c:var(--scarlet)" ${active==="home"?'aria-current="page"':""}><span class="sw"></span>Home</a></li>`;
+  html += `<li class="group">Units</li>`;
+  TOPICS.filter(t=>t.group==="units").forEach(t=>{ html += navLink(t,active); });
+  html += `<li class="group">Research projects</li>`;
+  TOPICS.filter(t=>t.group==="projects").forEach(t=>{ html += navLink(t,active); });
+  nav.innerHTML = html;
+}
+function navLink(t,active){
+  return `<li><a href="#${t.id}" style="--c:var(${t.colour})" ${active===t.id?'aria-current="page"':""}><span class="sw"></span>${t.name}</a></li>`;
+}
+
+/* ---------- Views ---------- */
+function renderHome(){
+  document.documentElement.style.setProperty("--accent","var(--scarlet)");
+  const terms = [
+    ["Term 1",[["genetics","Genetics","Variation to pedigree charts"],["diseases","Genetic Diseases Project","Report due end of Term 1"]]],
+    ["Term 2",[["cells","Cells","Cell structure, transport, enzymes, respiration, photosynthesis"],["immunity","Immunity","Pathogens and lines of defence"]]],
+    ["Term 3",[["immunity","Immunity","Treatments, vaccination, antibiotic resistance"],["responses","Human Responses","Nervous system, synapses, hormones"]]],
+    ["Term 4",[["responses","Human Responses","Thermoregulation, glucose control"],["diabetes","Type 2 Diabetes Paper","Sugar tax report"]]]
+  ];
+  const col = id => TOPICS.find(t=>t.id===id).colour;
+  return `
+  <div class="home-intro">
+    <h2>Your year at a glance</h2>
+    <p>Every unit has its own flashcards, a practice test, video links and Mrs Cole’s slides and notes. The two research projects have the task, study material, examples and sources you can use and reference.</p>
+  </div>
+  <div class="year">
+    ${terms.map(([t,items])=>`<div class="term"><h3>${t}</h3>${items.map(([id,n,s])=>`<a href="#${id}" style="--c:var(${col(id)})">${n}<small>${s}</small></a>`).join("")}</div>`).join("")}
+  </div>
+  <div class="howto">
+    <h3>How to revise with this site</h3>
+    <p>Start with the flashcards. Mark each card “I know this” or “Still learning”, then switch to “Still learning only” and go again until the pile is empty. Your progress is saved on this device.</p>
+    <p>When you can get through the cards, take the practice test. Read the explanation for every answer you get wrong, then go back to the slides for that idea.</p>
+  </div>`;
+}
+
+function renderTopic(t){
+  document.documentElement.style.setProperty("--accent",`var(${t.colour})`);
+  let subs;
+  if(t.custom==="diseases") subs = [["task","The task"],["guides","Disease guides"],["punnett","Punnett square builder"],["flash","Flashcards"],["test","Practice test"],["videos","Videos"],["sources","Sources"]];
+  else if(t.custom==="diabetes") subs = [["task","The task"],["material","Study material"],["debate","Sugar tax debate"],["flash","Flashcards"],["test","Practice test"],["videos","Videos"],["sources","Papers and sources"]];
+  else subs = [["flash","Flashcards"],["test","Practice test"],["videos","Videos"],["files","PowerPoints and notes"]];
+  const sel = currentSub[t.id] || subs[0][0];
+  return `
+  <div class="topic-head"><h2>${t.name}</h2><p>${t.blurb}</p></div>
+  <div class="subtabs" role="tablist">${subs.map(([k,l])=>`<button role="tab" data-sub="${k}" aria-selected="${k===sel}">${l}</button>`).join("")}</div>
+  <div id="panel" role="tabpanel"></div>`;
+}
+
+function fillPanel(t){
+  const panel = document.getElementById("panel");
+  const sub = document.querySelector('.subtabs [aria-selected="true"]').dataset.sub;
+  const data = t.custom==="diseases" ? DISEASES : t.custom==="diabetes" ? DIABETES : t;
+  if(sub==="flash") return flashcards(panel, t.id, data.flash);
+  if(sub==="test") return quiz(panel, t.id, data.test);
+  if(sub==="videos") panel.innerHTML = videoList(data.videos);
+  if(sub==="files") panel.innerHTML = fileList(t.files);
+  if(sub==="task") panel.innerHTML = t.custom==="diseases" ? diseaseTask() : diabetesTask();
+  if(sub==="guides") panel.innerHTML = diseaseGuides();
+  if(sub==="punnett") return punnett(panel);
+  if(sub==="material") panel.innerHTML = diabetesMaterial();
+  if(sub==="debate") panel.innerHTML = diabetesDebate();
+  if(sub==="sources") panel.innerHTML = t.custom==="diseases" ? diseaseSources() : diabetesSources();
+}
+
+/* ---------- Flashcards ---------- */
+function flashcards(panel, id, cards){
+  const known = new Set(store.get("known:"+id, []));
+  let onlyLearning = false, order = cards.map((_,i)=>i), pos = 0;
+  const deck = ()=> onlyLearning ? order.filter(i=>!known.has(i)) : order;
+  function draw(){
+    const d = deck();
+    const pct = Math.round(known.size / cards.length * 100);
+    if(d.length===0){
+      panel.innerHTML = `${tools()}<div class="progress"><span style="width:${pct}%"></span></div>
+      <div class="score"><div class="big">All done</div><p>You’ve marked every card as known. Try the practice test, or reset to go again.</p>
+      <button class="btn" data-a="reset">Reset progress</button></div>`;
+      bind(); return;
+    }
+    if(pos>=d.length) pos = 0;
+    const i = d[pos], [q,a] = cards[i];
+    panel.innerHTML = `${tools()}
+    <div class="progress" title="${known.size} of ${cards.length} known"><span style="width:${pct}%"></span></div>
+    <div class="card-stage">
+      <button class="flash" id="card" aria-label="Flashcard. Press to flip.">
+        <div class="face front"><div class="tag"><span>Card ${i+1} of ${cards.length}</span><b>Question</b></div><div class="txt">${q}</div></div>
+        <div class="face back"><div class="tag"><span>Card ${i+1} of ${cards.length}</span><b>Answer</b></div><div class="txt">${a}</div></div>
+      </button>
+    </div>
+    <div class="fc-nav">
+      <button class="btn" data-a="prev">Previous</button>
+      <button class="btn" data-a="flip">Flip</button>
+      <span class="grow"></span>
+      <button class="btn" data-a="learning">Still learning</button>
+      <button class="btn primary" data-a="know">${known.has(i)?"Known ✓":"I know this"}</button>
+      <button class="btn" data-a="next">Next</button>
+    </div>
+    <p class="fc-hint">Keyboard: space to flip, ← and → to move.</p>`;
+    bind();
+  }
+  function tools(){
+    return `<div class="fc-tools">
+      <button class="btn" data-a="shuffle">Shuffle</button>
+      <button class="btn" data-a="filter" aria-pressed="${onlyLearning}">Still learning only</button>
+      <button class="btn" data-a="reset">Reset progress</button>
+      <span class="fc-count">${known.size} of ${cards.length} known</span>
+    </div>`;
+  }
+  function save(){ store.set("known:"+id, [...known]); }
+  function act(a){
+    const d = deck(); const card = document.getElementById("card");
+    if(a==="flip" && card) card.classList.toggle("flipped");
+    if(a==="next"){ pos = (pos+1) % Math.max(d.length,1); draw(); }
+    if(a==="prev"){ pos = (pos-1+d.length) % Math.max(d.length,1); draw(); }
+    if(a==="know"){ known.add(d[pos]); save(); if(!onlyLearning) pos++; draw(); }
+    if(a==="learning"){ known.delete(d[pos]); save(); pos++; draw(); }
+    if(a==="shuffle"){ order = order.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]); pos=0; draw(); }
+    if(a==="filter"){ onlyLearning = !onlyLearning; pos=0; draw(); }
+    if(a==="reset"){ known.clear(); save(); pos=0; draw(); }
+  }
+  function bind(){
+    panel.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>act(b.dataset.a));
+    const card = document.getElementById("card"); if(card) card.onclick=()=>act("flip");
+  }
+  panel._key = e=>{
+    if(e.target.closest("input,select,textarea")) return;
+    if(e.key===" "){ e.preventDefault(); act("flip"); }
+    if(e.key==="ArrowRight") act("next");
+    if(e.key==="ArrowLeft") act("prev");
+  };
+  draw();
+}
+
+/* ---------- Quiz ---------- */
+function quiz(panel, id, qs){
+  let order, n, score, wrong;
+  const start = ()=>{ order = qs.map((_,i)=>i).sort(()=>Math.random()-.5); n=0; score=0; wrong=[]; ask(); };
+  function ask(){
+    if(n>=order.length) return finish();
+    const [q,opts,ans,why] = qs[order[n]];
+    panel.innerHTML = `<div class="quiz">
+      <div class="q-meta"><span>Question ${n+1} of ${order.length}</span><span>Score ${score}</span></div>
+      <p class="q-text">${q}</p>
+      <div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span>${o}</span></button>`).join("")}</div>
+      <div id="fb"></div></div>`;
+    panel.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+      const i = +b.dataset.i;
+      panel.querySelectorAll(".opt").forEach((x,j)=>{ x.disabled=true; if(j===ans) x.classList.add("right"); });
+      const ok = i===ans;
+      if(ok) score++; else { b.classList.add("wrong"); wrong.push(q); }
+      document.getElementById("fb").innerHTML = `<div class="explain"><b>${ok?"Correct.":"Not quite. The answer is "+"ABCD"[ans]+"."}</b>${why}</div>
+        <div style="margin-top:14px"><button class="btn primary" id="nextQ">${n+1<order.length?"Next question":"See your score"}</button></div>`;
+      const nb = document.getElementById("nextQ"); nb.focus(); nb.onclick=()=>{ n++; ask(); };
+    });
+  }
+  function finish(){
+    const pct = Math.round(score/order.length*100);
+    const best = Math.max(store.get("best:"+id,0), pct); store.set("best:"+id,best);
+    panel.innerHTML = `<div class="score"><div class="big">${score} / ${order.length}</div>
+      <p>${pct}% this attempt. Your best on this device: ${best}%.</p>
+      ${wrong.length?`<p><b>Go back over these:</b></p><ul>${wrong.map(w=>`<li>${w}</li>`).join("")}</ul>`:"<p>Every question right. Nice work.</p>"}
+      <button class="btn primary" id="again">Try again (new order)</button></div>`;
+    document.getElementById("again").onclick=start;
+  }
+  start();
+}
+
+/* ---------- Lists ---------- */
+function videoList(v){
+  return `<div class="res-group"><p>Watch with your notes open. Osmosis videos are made for medical students, so they go deeper than you need; use them for your research, not for the basics. Links marked Search open a YouTube search where no Amoeba Sisters or Osmosis video covers the topic.</p>
+  <ul class="res">${v.map(([t,c,u])=>`<li><a href="${u}" target="_blank" rel="noopener"><span class="kind">${u.includes("search_query")?"Search":"Video"}</span><span><span class="t">${t}</span><span class="d">${c}</span></span></a></li>`).join("")}</ul></div>`;
+}
+function fileList(groups){
+  return groups.map(g=>`<div class="res-group"><h3>${g.h}</h3><ul class="res">${g.items.map(([t,k,u,d])=>`<li><a href="${u}" target="_blank" rel="noopener"><span class="kind">${k}</span><span><span class="t">${t}</span><span class="d">${d}</span></span></a></li>`).join("")}</ul></div>`).join("");
+}
+function linkList(items){
+  return `<ul class="res">${items.map(([t,k,u,d])=>`<li><a href="${u}" target="_blank" rel="noopener"><span class="kind">${k}</span><span><span class="t">${t}</span><span class="d">${d}</span></span></a></li>`).join("")}</ul>`;
+}
+
+/* ---------- Genetic diseases project ---------- */
+function diseaseTask(){
+  return `<div class="prose">
+  <h3>What you’re answering</h3>
+  <p><b>Discuss the inheritance of a genetic disease.</b> Choose Huntington’s disease, cystic fibrosis or Duchenne muscular dystrophy, or another disease your teacher approves. You have two weeks: two lessons in class, then the rest of the time to write your report on the Google Classroom document.</p>
+  <h3>Task 1: Build your research portfolio</h3>
+  <p>Collect notes on your disease, keep every link you use, and submit the portfolio on Google Classroom by the end of the second period. You can keep adding to it afterwards.</p>
+  <h3>Task 2: Your report must include</h3>
+  <ul>
+    <li>Whether the allele is autosomal dominant or recessive (or X-linked), with fully explained Punnett squares showing how it can be inherited.</li>
+    <li>The organs or organ systems affected and the impact on the person.</li>
+    <li>Symptoms: what the person sees, feels and experiences.</li>
+    <li>Treatments, including experimental ones, how they work and any side effects.</li>
+    <li>Prognosis and life expectancy.</li>
+    <li>How genetic testing shows whether you have, or carry, the disease.</li>
+  </ul>
+  <h3>Task 3: Advise your friend</h3>
+  <p>Your 20-year-old friend has just found out they are adopted, and their birth family has a history of your disease. They have no symptoms. For Huntington’s: would you advise them to get tested? For CF or DMD: would you advise a carrier test? Justify your advice with evidence from your report and discuss the implications of knowing and of not knowing.</p>
+  <div class="note"><b>Marks:</b> Biological ideas /12, Justifying your personal position /6, Referencing /2. For full referencing marks you need in-text citations and a reference list. Limited use of generative AI is allowed, and anything you use must be referenced.</div>
+  <h3>Your files</h3>
+  ${linkList([["2026 Genetic Diseases Research Task","Doc",doc("1sEiCKoWrjWY-OqoP_r9t7XMEzKsQ1wD3gJMA1C19htI"),"Full task sheet and marking criteria"]])}
+  </div>`;
+}
+function diseaseGuides(){
+  const dz = [
+    {n:"Huntington’s disease", inh:"Autosomal dominant", rows:[
+      ["Gene","HTT on chromosome 4. An expanded CAG repeat produces a faulty huntingtin protein that gradually kills nerve cells in the brain."],
+      ["Organs affected","The brain and nervous system, especially areas controlling movement, thinking and emotion."],
+      ["Symptoms","Usually start between 30 and 50: jerky uncontrolled movements (chorea), clumsiness, memory and concentration problems, mood changes, depression, and difficulty speaking and swallowing."],
+      ["Treatment","No cure. Medicines reduce chorea and treat depression; physiotherapy, speech therapy and occupational therapy help daily life. Experimental gene-silencing therapies aim to lower huntingtin levels."],
+      ["Prognosis","Progressive. People typically live 15–20 years after symptoms begin."],
+      ["Testing","A predictive blood test counts the CAG repeats. It is offered with genetic counselling before and after, because a positive result can’t be undone."],
+      ["Inheritance tip","An affected parent (Hh) × unaffected parent (hh) gives a 50% chance for each child. Because symptoms start later, people often have children before they know."]
+    ], links:[["MedlinePlus: Huntington disease","https://medlineplus.gov/genetics/condition/huntington-disease/"],["Huntington’s Disease Association NZ","https://www.huntingtons.org.nz/"]]},
+    {n:"Cystic fibrosis", inh:"Autosomal recessive", rows:[
+      ["Gene","CFTR on chromosome 7. It codes for a channel protein that moves chloride ions (and so water) across cell membranes."],
+      ["Organs affected","Lungs, pancreas, digestive system, liver and reproductive system."],
+      ["Symptoms","Thick, sticky mucus that blocks airways, a persistent cough, frequent chest infections, poor growth and weight gain, greasy stools, and very salty sweat."],
+      ["Treatment","Daily airway clearance physiotherapy, antibiotics, enzyme capsules with food, high-calorie diet. CFTR modulator medicines (e.g. Trikafta) help the faulty protein work and have greatly improved health. Lung transplant in severe cases."],
+      ["Prognosis","Life expectancy has risen sharply; many people now live into their 50s and beyond, especially with modulator medicines."],
+      ["Testing","NZ newborns are screened by the heel-prick test. A sweat test confirms diagnosis. Carrier testing looks for CFTR alleles. About 1 in 25 people of European descent is a carrier."],
+      ["Inheritance tip","Two carrier parents (Ff × Ff): 25% affected (ff), 50% carriers (Ff), 25% unaffected non-carriers (FF)."]
+    ], links:[["MedlinePlus: Cystic fibrosis","https://medlineplus.gov/genetics/condition/cystic-fibrosis/"],["Cystic Fibrosis NZ","https://www.cfnz.org.nz/"]]},
+    {n:"Duchenne muscular dystrophy", inh:"X-linked recessive", rows:[
+      ["Gene","DMD on the X chromosome. It codes for dystrophin, a protein that protects muscle fibres from damage when they contract."],
+      ["Organs affected","Skeletal muscles first, then the heart and the muscles used for breathing."],
+      ["Symptoms","Signs appear around ages 2–5: frequent falls, difficulty climbing stairs, using the hands to push up from the floor (Gowers’ sign), enlarged calves. Most need a wheelchair by early teens."],
+      ["Treatment","No cure. Corticosteroids slow muscle loss; physiotherapy, heart medicines and breathing support help. Newer therapies include exon-skipping drugs and gene therapy, approved in some countries."],
+      ["Prognosis","With modern care, many people live into their 20s and 30s, and some longer."],
+      ["Testing","A blood test for creatine kinase (CK), confirmed by genetic testing. Female relatives can have carrier testing."],
+      ["Inheritance tip","Use X and Y in your Punnett square. A carrier mother (XᴰXᵈ) × unaffected father (XᴰY): each son has a 50% chance of DMD, each daughter a 50% chance of being a carrier."]
+    ], links:[["MedlinePlus: Duchenne and Becker muscular dystrophy","https://medlineplus.gov/genetics/condition/duchenne-and-becker-muscular-dystrophy/"],["Muscular Dystrophy Association NZ","https://www.mda.org.nz/"]]}
+  ];
+  return `<div class="prose" style="max-width:none">
+  <p style="max-width:72ch">Start here, then read the linked sources so you can reference them. Open a disease to see the key facts.</p>
+  <div class="diseases">${dz.map((d,i)=>`<details class="disease" ${i===0?"open":""}><summary><h3>${d.n}</h3><span class="inh">${d.inh}</span></summary>
+    <div class="body"><dl>${d.rows.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    <p><b>Read more:</b> ${d.links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}</a>`).join(", ")}</p></div></details>`).join("")}</div>
+  <div class="note" style="max-width:72ch">The task asks whether your disease is autosomal dominant or recessive. DMD is X-linked recessive, so explain that and show the X and Y chromosomes in your Punnett squares.</div>
+  <h3>Other genetic diseases you could ask to research</h3>
+  <div class="table-scroll"><table class="more-dz">
+    <thead><tr><th>Disease</th><th>Inheritance</th><th>What it affects</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Sickle cell disease</td><td>Autosomal recessive</td><td>Red blood cells become sickle-shaped, blocking blood flow and causing pain and anaemia</td><td><a href="https://medlineplus.gov/genetics/condition/sickle-cell-disease/" target="_blank" rel="noopener">MedlinePlus</a></td></tr>
+      <tr><td>Haemophilia</td><td>X-linked recessive</td><td>Blood doesn’t clot properly, causing prolonged bleeding</td><td><a href="https://medlineplus.gov/genetics/condition/hemophilia/" target="_blank" rel="noopener">MedlinePlus</a></td></tr>
+      <tr><td>Phenylketonuria (PKU)</td><td>Autosomal recessive</td><td>Can’t break down phenylalanine, which damages the brain unless diet is controlled; included in NZ newborn screening</td><td><a href="https://medlineplus.gov/genetics/condition/phenylketonuria/" target="_blank" rel="noopener">MedlinePlus</a></td></tr>
+      <tr><td>Tay-Sachs disease</td><td>Autosomal recessive</td><td>Fatty substances build up in nerve cells, destroying the brain and spinal cord</td><td><a href="https://medlineplus.gov/genetics/condition/tay-sachs-disease/" target="_blank" rel="noopener">MedlinePlus</a></td></tr>
+      <tr><td>Marfan syndrome</td><td>Autosomal dominant</td><td>Connective tissue: long limbs, heart valve and aorta problems, eye lens issues</td><td><a href="https://medlineplus.gov/genetics/condition/marfan-syndrome/" target="_blank" rel="noopener">MedlinePlus</a></td></tr>
+    </tbody></table></div>
+  </div>`;
+}
+function diseaseSources(){
+  return `<div class="prose">
+  <div class="res-group"><h3>Reliable places to start</h3>
+  ${linkList([
+    ["MedlinePlus Genetics","Site","https://medlineplus.gov/genetics/","US National Library of Medicine: clear pages on every condition, gene and inheritance pattern"],
+    ["Genetic Health Service NZ","Site","https://www.genetichealthservice.org.nz/","NZ’s public genetic testing and counselling service"],
+    ["Healthify (He Puna Waiora)","Site","https://healthify.nz/","NZ health information written for the public"],
+    ["Huntington’s Disease Association NZ","Site","https://www.huntingtons.org.nz/","Living with Huntington’s in NZ"],
+    ["Cystic Fibrosis NZ","Site","https://www.cfnz.org.nz/","Support, treatment news and stories from NZ families"],
+    ["Muscular Dystrophy Association NZ","Site","https://www.mda.org.nz/","Support and information on neuromuscular conditions"]
+  ])}</div>
+  <div class="note"><b>Referencing reminder:</b> use in-text citations, e.g. (MedlinePlus, 2024), and a reference list at the end with author or organisation, year, title and URL. Note the date you accessed each web page.</div>
+  </div>`;
+}
+function punnett(panel){
+  panel.innerHTML = `<div class="punnett">
+  <div class="ctrls">
+    <label>Inheritance pattern
+      <select id="pmode"><option value="ar">Autosomal recessive (e.g. CF)</option><option value="ad">Autosomal dominant (e.g. Huntington’s)</option><option value="xr">X-linked recessive (e.g. DMD)</option></select></label>
+    <label>Parent 1<select id="p1"></select></label>
+    <label>Parent 2<select id="p2"></select></label>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+  <div id="presult"></div>
+  </div>`;
+  const opts = {
+    ar:{p1:["FF","Ff","ff"],p2:["FF","Ff","ff"],d1:"Ff",d2:"Ff"},
+    ad:{p1:["HH","Hh","hh"],p2:["HH","Hh","hh"],d1:"Hh",d2:"hh"},
+    xr:{p1:["XᴰXᴰ","XᴰXᵈ","XᵈXᵈ"],p2:["XᴰY","XᵈY"],d1:"XᴰXᵈ",d2:"XᴰY"}
+  };
+  const m=panel.querySelector("#pmode"), a=panel.querySelector("#p1"), b=panel.querySelector("#p2");
+  const split = g => g.startsWith("X") ? g.match(/X.|Y/g) : [g[0],g[1]];
+  function fill(){
+    const o=opts[m.value];
+    a.innerHTML=o.p1.map(g=>`<option ${g===o.d1?"selected":""}>${g}</option>`).join("");
+    b.innerHTML=o.p2.map(g=>`<option ${g===o.d2?"selected":""}>${g}</option>`).join("");
+    draw();
+  }
+  function status(g){
+    const mode=m.value;
+    if(mode==="ar") return g==="ff"?"aff":g.includes("f")?"car":"ok";
+    if(mode==="ad") return g.includes("H")?"aff":"ok";
+    const al=split(g);
+    if(al.includes("Y")) return al.includes("Xᵈ")?"aff":"ok";
+    return al.every(x=>x==="Xᵈ")?"aff":al.includes("Xᵈ")?"car":"ok";
+  }
+  function order(x,y){
+    if(m.value==="xr"){ return y==="Y"?x+y:x==="Y"?y+x:[x,y].sort().join(""); }
+    return [x,y].sort((p,q)=> (p===p.toUpperCase()?0:1)-(q===q.toUpperCase()?0:1)).join("");
+  }
+  function draw(){
+    const g1=split(a.value), g2=split(b.value);
+    const kids=[]; let html=`<div></div>${g2.map(x=>`<div class="hd">${x}</div>`).join("")}`;
+    g1.forEach(x=>{ html+=`<div class="hd">${x}</div>`; g2.forEach(y=>{ const k=order(x,y); kids.push(k); const s=status(k); html+=`<div class="cell ${s==="aff"?"aff":s==="car"?"car":""}">${k}</div>`; }); });
+    panel.querySelector("#pgrid").innerHTML=html;
+    const aff=kids.filter(k=>status(k)==="aff").length*25, car=kids.filter(k=>status(k)==="car").length*25;
+    let txt=`<p><b>${aff}%</b> chance each child is affected${m.value!=="ad"?`, <b>${car}%</b> chance each child is a carrier`:""}, <b>${100-aff-car}%</b> unaffected${m.value!=="ad"?" non-carrier":""}.</p>`;
+    if(m.value==="xr") txt+=`<p>Top row: gametes from the father (X or Y). The affected boxes are sons. Explain this sex difference in your report.</p>`;
+    txt+=`<p style="color:var(--muted);font-size:.95rem">Filled boxes are affected; outlined boxes are carriers. Each box is a 25% chance for every pregnancy, not a prediction of how many children will be affected.</p>`;
+    panel.querySelector("#presult").innerHTML=txt;
+  }
+  m.onchange=fill; a.onchange=draw; b.onchange=draw; fill();
+}
+
+/* ---------- Diabetes project ---------- */
+function diabetesTask(){
+  return `<div class="prose">
+  <h3>What you’re answering</h3>
+  <p><b>Should a sugar tax be introduced to New Zealand to help address the growing incidence of Type 2 diabetes?</b> Type 2 was once called late-onset diabetes, but more young New Zealanders are now being diagnosed; the incidence in children under 15 has risen about 5% a year over the last two decades. You have two weeks, in and out of class.</p>
+  <h3>Task 1: Research portfolio</h3>
+  <p>Research each question below, keep every link, and submit your portfolio on Google Classroom by the end of the second period.</p>
+  <h3>Task 2: Your report must</h3>
+  <ol>
+    <li>Outline how a healthy body regulates blood glucose, high and low (negative feedback).</li>
+    <li>Explain the role of insulin and how it interacts with cells, including the organs involved.</li>
+    <li>Outline what Type 2 diabetes is and its risk factors.</li>
+    <li>Explain why Type 2 diabetes breaks down blood glucose regulation.</li>
+    <li>Discuss the implications for an individual’s health.</li>
+    <li>Discuss the implications for NZ society: economic and medical.</li>
+    <li>Outline what a sugar tax is and how another country has used one.</li>
+    <li>Present arguments from two named groups for and two against, with their reasons.</li>
+    <li>Give your own fully justified opinion, comparing NZ with other countries and discussing what happens if we do and don’t have a sugar tax.</li>
+  </ol>
+  <div class="note"><b>Marks:</b> Biological ideas /15, Justifying your personal position /8, Referencing /2. Top marks link each symptom back to how homeostasis has broken down (e.g. thirst explained using osmosis), and weigh up both outcomes of the decision.</div>
+  <h3>Your files</h3>
+  ${linkList([
+    ["2026 Diabetes Research Task","Word",file("14Au08dENxwu9d-Bx3AD9bKKKooqg2M1_"),"Task sheet, instructions and marking criteria"],
+    ["2026 Diabetes Portfolio to Hand In","Doc",doc("1_SndtgwGmG0elSzSp8f0vD2fkk-HLpPRhgbfXVsBpPw"),"Portfolio document for Task 1"],
+    ["2026 Human Responses: Homeostasis slides","Slides",slides("1APJGatkgF44Xm2yEtV6T-0hd_9bqkLWUb7ht-yDR_DY"),"Glucose control from class"]
+  ])}
+  </div>`;
+}
+function diabetesMaterial(){
+  return `<div class="prose">
+  <h3>1. How a healthy body regulates blood glucose</h3>
+  <p>Blood glucose is kept at about 4–7 mmol/L by negative feedback. The pancreas is both the receptor and the control centre.</p>
+  <h4>When glucose is too high (after a meal)</h4>
+  <div class="flow"><span>Glucose rises</span><i>→</i><span>Beta cells in pancreas detect it</span><i>→</i><span>Insulin released into blood</span><i>→</i><span>Cells take up glucose; liver and muscles store it as glycogen</span><i>→</i><span>Glucose falls to normal</span></div>
+  <h4>When glucose is too low (exercise, fasting)</h4>
+  <div class="flow"><span>Glucose falls</span><i>→</i><span>Alpha cells in pancreas detect it</span><i>→</i><span>Glucagon released</span><i>→</i><span>Liver breaks glycogen down into glucose</span><i>→</i><span>Glucose rises to normal</span></div>
+  <h3>2. What insulin does at the cell</h3>
+  <p>Insulin binds to receptor proteins on the cell membrane. This signals the cell to move glucose transporter (channel) proteins to the membrane, so glucose can diffuse in and be used in respiration to make ATP. In the liver and muscles, insulin also triggers glucose to be converted into glycogen.</p>
+  <h3>3. What Type 2 diabetes is, and why it happens</h3>
+  <p>In Type 2 diabetes, body cells become resistant to insulin: the receptors stop responding properly, so fewer glucose channels open. The pancreas makes more insulin to compensate, but over time the beta cells can’t keep up. Glucose stays in the blood instead of entering cells.</p>
+  <p><b>Risk factors you can change:</b> excess body fat (especially around the waist), diets high in sugar and refined carbohydrates, sugary drinks and low physical activity. <b>Risk factors you can’t change:</b> family history, age and ethnicity. In New Zealand, rates are higher in Māori, Pacific and South Asian communities.</p>
+  <div class="note">Compare: Type 1 diabetes is an autoimmune condition in which the immune system destroys beta cells, so little or no insulin is made. It can’t be prevented by lifestyle. Your report should make this difference clear.</div>
+  <h3>4. Why regulation breaks down, linked to symptoms</h3>
+  <ul>
+    <li><b>Frequent urination:</b> the kidneys can’t reabsorb all the glucose, so it ends up in urine and water follows it by osmosis.</li>
+    <li><b>Excessive thirst:</b> losing so much water makes the blood more concentrated, and water moves out of cells by osmosis, triggering thirst.</li>
+    <li><b>Tiredness and hunger:</b> glucose can’t get into cells, so they have less fuel for respiration and less ATP.</li>
+    <li><b>Slow-healing wounds and infections:</b> high glucose damages blood vessels, reducing blood flow and the delivery of white blood cells.</li>
+    <li><b>Tingling or numb feet:</b> nerve damage (neuropathy). Combined with poor circulation, small foot injuries can become ulcers, sometimes leading to amputation.</li>
+    <li><b>Blurred vision:</b> damage to tiny blood vessels in the retina.</li>
+  </ul>
+  <h3>5. Implications for the individual</h3>
+  <p>Higher risk of heart attack, stroke, kidney failure, blindness and amputation; daily medication and glucose monitoring; time off work or school; reduced quality of life and a shorter life expectancy.</p>
+  <h3>6. Implications for New Zealand society</h3>
+  <ul>
+    <li><b>Medical:</b> more GP visits, hospital admissions, dialysis, surgery and amputations, putting pressure on an already stretched health system and leaving less capacity for other patients.</li>
+    <li><b>Economic:</b> the cost of medicines, appointments and treatment of complications, plus lost productivity when people can’t work.</li>
+    <li><b>Equity:</b> Type 2 affects some communities far more than others, widening health gaps.</li>
+    <li><b>Future:</b> children diagnosed young will live with the condition for longer, so complications and costs are likely to grow.</li>
+  </ul>
+  <h3>7. What a sugar tax is</h3>
+  <p>A sugar tax adds a charge to sugar-sweetened beverages (and sometimes high-sugar foods) to raise their price so people buy less. Some are a flat percentage; others are tiered by sugar content. The UK’s Soft Drinks Industry Levy (2018) is tiered, which pushed many companies to reformulate drinks with less sugar before the tax began. Mexico introduced a tax on sugary drinks in 2014. The World Health Organization recommends taxes on sugary drinks, and over 100 countries now have one. New Zealand does not currently have a sugar tax.</p>
+  </div>`;
+}
+function diabetesDebate(){
+  return `<div class="prose" style="max-width:none">
+  <p style="max-width:72ch">Your report needs two named groups for a sugar tax and two against, with their reasons. Check each group’s current position on their own website, because some have changed their view over time, then reference it.</p>
+  <div class="debate">
+    <div><h4>Groups that have argued for a tax</h4>
+      <p><b>Diabetes New Zealand</b> backed a sugar tax in 2018, saying it could cut Type 2 diabetes, improve quality of life and save health costs, and pointing to UK drinks being reformulated. (An earlier 2018 report quoted their CEO doubting a stand-alone tax, which is worth noting when you judge reliability.)</p>
+      <p><b>Heart Foundation NZ</b> supports a tax on sugary drinks as part of wider policy, aiming to cut children’s sugar intake and fund nutrition education.</p>
+      <p><b>FIZZ</b>, a group of NZ doctors and public health researchers, campaigns for a sugary drinks tax and for sugary drinks to be removed from schools.</p>
+      <p><b>NZ Dental Association</b> calls for national sugar reduction policies because of the oral health crisis.</p>
+    </div>
+    <div><h4>Groups that have argued against</h4>
+      <p><b>NZ Beverage Council</b> says overseas evidence is weak, that a tax unfairly targets one industry and that people may switch to other sugary foods.</p>
+      <p><b>Coca-Cola Oceania</b> argues a tax is regressive (hits low-income families hardest) and that the industry is already reducing sugar voluntarily.</p>
+      <p><b>The New Zealand Initiative</b>, a free-market think tank, published research arguing against a sugar tax and challenged the evidence that it would improve health.</p>
+      <p><b>NZIER</b> reviewed the evidence for the Ministry of Health and concluded it was inconclusive whether a tax would pass a full cost–benefit test.</p>
+    </div>
+  </div>
+  <div class="prose">
+  <h3>Questions to help you form your own position</h3>
+  <ul>
+    <li>Who is the source? A drinks company and a diabetes charity both have reasons for their view. How reliable is each?</li>
+    <li>What happened in other countries after a tax, and is NZ similar enough to compare?</li>
+    <li>If NZ does introduce a tax: what changes for consumers, companies and the health budget? Where could the money go?</li>
+    <li>If NZ doesn’t: what happens to Type 2 rates, especially in children, and to health costs?</li>
+    <li>Is a tax enough on its own, or does it need education, labelling and access to healthy food alongside it?</li>
+  </ul></div>
+  </div>`;
+}
+function diabetesSources(){
+  return `<div class="prose">
+  <div class="res-group"><h3>Research papers and reviews</h3>
+  ${linkList([
+    ["Sugar taxes: a review of the evidence (NZIER)","Report","https://www.nzier.org.nz/publications/sugar-taxes-a-review-of-the-evidence","Report to the NZ Ministry of Health assessing whether sugar taxes improve health"],
+    ["Otago systematic review: sugary drink taxes reduce purchases","Summary","https://www.dental-tribune.com/news/sugary-drink-taxes-decrease-consumption-of-beverages-study-finds","University of Otago review finding taxes reduce sales and intake; tiered-by-sugar taxes worked better"],
+    ["Sugar in drinks more harmful than sugar in food (Sundborn et al.)","Summary","https://www.scoop.co.nz/stories/GE1905/S00020/sugar-in-drinks-more-dangerous-than-sugar-in-foods-study.htm","NZ-led review published in the journal Obesity"],
+    ["Sin taxes and health: insights from New Zealand (AUT thesis)","Thesis","https://openrepository.aut.ac.nz/items/9c65052b-79b3-436d-bc50-28564a9f31a0","Links NZ household sugary-drink spending to diabetes medication use"]
+  ])}</div>
+  <div class="res-group"><h3>For and against: primary sources</h3>
+  ${linkList([
+    ["Diabetes NZ: “Sugar tax will help stem the rising tide”","Media release","https://www.scoop.co.nz/stories/GE1807/S00041/sugar-tax-will-help-stem-the-rising-tide-of-type-2-diabetes.htm","2018 statement supporting a tax"],
+    ["Newsroom: “Cut sugar content or we’ll regulate”","Article","https://www.newsroom.co.nz/2018/02/07/81870/cut-sugar-content-or-well-regulate","Government, NZ Initiative and Diabetes NZ views on why a tax wasn’t introduced"],
+    ["Diabetes New Zealand","Site","https://www.diabetes.org.nz/","Check their current position and NZ statistics"],
+    ["Heart Foundation NZ","Site","https://www.heartfoundation.org.nz/","Position on sugary drinks"],
+    ["FIZZ","Site","https://www.fizz.org.nz/","NZ campaign for a sugary drinks tax"],
+    ["NZ Beverage Council","Site","https://www.nzbeveragecouncil.org.nz/","Drinks industry position"],
+    ["The New Zealand Initiative","Site","https://www.nzinitiative.org.nz/","Search their reports for sugar tax"]
+  ])}</div>
+  <div class="res-group"><h3>Health background</h3>
+  ${linkList([
+    ["WHO: Diabetes fact sheet","Fact sheet","https://www.who.int/news-room/fact-sheets/detail/diabetes","Global figures, causes and complications"],
+    ["Healthify (He Puna Waiora)","Site","https://healthify.nz/","Search “type 2 diabetes” for NZ-specific patient information"],
+    ["NZ Diabetes Statistics Research Plan","Doc",doc("1LqQ-gCmCSMV-lyk1HncurpnrMu93hub4iC-9NGMxp4E"),"Planning guide for finding NZ statistics"]
+  ])}</div>
+  <div class="note"><b>Evaluate your sources:</b> who wrote it, when, and do they benefit from the outcome? Mentioning this in your opinion section helps you reach the top contextualisation band.</div>
+  </div>`;
+}
+
+/* ---------- Router ---------- */
+function route(){
+  const id = (location.hash||"#home").slice(1);
+  const t = TOPICS.find(x=>x.id===id);
+  renderNav(t?id:"home");
+  const main = document.getElementById("main");
+  if(!t){ main.innerHTML = renderHome(); return; }
+  main.innerHTML = renderTopic(t);
+  main.querySelectorAll(".subtabs button").forEach(b=>b.onclick=()=>{
+    currentSub[t.id]=b.dataset.sub;
+    main.querySelectorAll(".subtabs button").forEach(x=>x.setAttribute("aria-selected", x===b));
+    fillPanel(t);
+  });
+  fillPanel(t);
+}
+document.addEventListener("keydown", e=>{ const p=document.getElementById("panel"); if(p && p._key && document.querySelector('.subtabs [aria-selected="true"]')?.dataset.sub==="flash") p._key(e); });
+window.addEventListener("hashchange", ()=>{ route(); window.scrollTo(0,0); });
+route();
+</script>
+</body>
+</html>
